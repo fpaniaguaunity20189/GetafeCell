@@ -264,6 +264,7 @@
   <ItemGroup>
     <Compile Include="Assets\_GameAssets\Scripts\FernanditoScript.cs" />
     <Compile Include="Assets\_GameAssets\Scripts\LlaveScript.cs" />
+    <Compile Include="Assets\_GameAssets\Scripts\VigilanteScript.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
