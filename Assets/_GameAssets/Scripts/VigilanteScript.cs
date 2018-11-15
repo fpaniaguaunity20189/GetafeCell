@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class VigilanteScript : MonoBehaviour {
+    public Text textDTP;
+    public Text textATP;
+    public GameObject player;
+
     public Transform[] puntosPatrulla = new Transform[4];
     NavMeshAgent agente;
     enum Estado { Idle, Andando, Corriendo, Saltando, Disparando };
@@ -12,9 +17,29 @@ public class VigilanteScript : MonoBehaviour {
 
     void Start () {
         agente = GetComponent<NavMeshAgent>();
-        AsignarPuntoPatrulla();
+        //AsignarPuntoPatrulla();
     }
     void Update () {
+        float distancia = Vector3.Distance(transform.position, player.transform.position);
+        Vector3 direccion = Vector3.Normalize(player.transform.position - transform.position);
+        float angulo = Vector3.Angle(direccion, transform.forward);
+        if (distancia < 6 && angulo < 25) {
+            Debug.DrawLine(transform.position, player.transform.position, Color.red, 1);
+            RaycastHit rch;
+            if (Physics.Raycast(
+                transform.position,
+                direccion,
+                out rch,
+                Mathf.Infinity)) {
+                print(rch.transform.gameObject.name);
+            }
+        }
+
+
+        textDTP.text = "DTP:" + distancia.ToString();
+        textATP.text = "ATP:" + angulo.ToString();
+
+
         switch (estado) {
             case Estado.Idle:
                 //NO HAGO NADA
