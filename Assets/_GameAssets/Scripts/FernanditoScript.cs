@@ -7,18 +7,28 @@ public class FernanditoScript : MonoBehaviour {
     enum Estado { Idle, Andando, Corriendo, Saltando, Disparando };
     Estado estado = Estado.Idle;
 
+    public Transform puntoGeneracionPetardos;
+    public GameObject prefabPetardo;
+
     public GameObject targetCircle;
     public Camera camara;
     public LayerMask walkableLayer;
 
+    public int fuerzaLanzamientoPetardo;
+
     Animator animador;
     NavMeshAgent agente;
+
+
     void Start() {
         agente = GetComponent<NavMeshAgent>();
         animador = GetComponent<Animator>();
     }
 
     void Update() {
+        if (Input.GetKeyDown(KeyCode.V)) {
+            GenerarYLanzarPetardo();
+        }
         if (Input.GetButtonDown("Fire1")) {
             ManageMouseClick();
         }
@@ -39,6 +49,14 @@ public class FernanditoScript : MonoBehaviour {
 
                 break;
         }
+    }
+
+    private void GenerarYLanzarPetardo() {
+        GameObject nuevoPetardo = Instantiate(
+                        prefabPetardo,
+                        puntoGeneracionPetardos.position,
+                        puntoGeneracionPetardos.rotation);
+        nuevoPetardo.GetComponent<Rigidbody>().AddRelativeForce(Vector3.forward * fuerzaLanzamientoPetardo);
     }
 
     private void ComprobarDestino() {

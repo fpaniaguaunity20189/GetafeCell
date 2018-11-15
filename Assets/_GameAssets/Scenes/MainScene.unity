@@ -6423,11 +6423,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85104c668f69ede42bbae821f18a69be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puntoGeneracionPetardos: {fileID: 1282925473}
+  prefabPetardo: {fileID: 1765159207447224, guid: b2e3df3865309604980a0daf9a889910,
+    type: 2}
   targetCircle: {fileID: 749671703}
   camara: {fileID: 207434253}
   walkableLayer:
     serializedVersion: 2
     m_Bits: 256
+  fuerzaLanzamientoPetardo: 300
 --- !u!136 &1258386396
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6456,6 +6460,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1282925472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1282925473}
+  m_Layer: 0
+  m_Name: PetardoGenPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1282925473
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1282925472}
+  m_LocalRotation: {x: -0.30335, y: -0, z: -0, w: 0.95287925}
+  m_LocalPosition: {x: 0, y: 1.467, z: 0.551}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1821142403}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: -35.318, y: 0, z: 0}
 --- !u!43 &1318705902
 Mesh:
   m_ObjectHideFlags: 0
@@ -7289,6 +7321,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43efe568a3bea1848be6dd514132dc7c, type: 3}
   m_IsPrefabParent: 0
+--- !u!4 &1821142403 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400012, guid: 43efe568a3bea1848be6dd514132dc7c, type: 3}
+  m_PrefabInternal: {fileID: 1821142402}
 --- !u!1 &1897110107
 GameObject:
   m_ObjectHideFlags: 0
