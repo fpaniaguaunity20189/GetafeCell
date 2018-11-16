@@ -11,7 +11,7 @@ public class PetardoScript : MonoBehaviour {
     }
     private void OnCollisionEnter(Collision collision) {
         if (primeraVez) {
-            vs.SetTarget(transform.position);
+            vs.SetDistraccion(transform.position);
             primeraVez = false;
             Destroy(this.gameObject, timeToDestroy);
         }

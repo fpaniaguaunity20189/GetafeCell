@@ -12,7 +12,7 @@ public class LlaveScript : MonoBehaviour {
         }
     }
     private void AbrirPuerta() {
-        vs.SetTarget(transform.position);
+        vs.SetDistraccion(transform.position);
         animatorPuerta.SetBool("AbreteSesamo", true);
         Destroy(gameObject);
     }
